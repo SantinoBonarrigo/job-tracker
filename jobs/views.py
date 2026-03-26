@@ -19,6 +19,19 @@ def create_job(request):
             position=position
 )
         return redirect("/")
-
-
     return render(request, "jobs/create_job.html")
+
+
+def delete_job(request,job_id):
+    job= JobApplication.objects.get(id=job_id)
+
+    if request.method == "POST":
+     job.delete()
+     return redirect("/")
+
+    return render(request, "jobs/delete_job.html", {"job": job})
+
+        
+       
+
+

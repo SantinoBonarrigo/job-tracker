@@ -5,10 +5,17 @@
 </head>
 <body>
 
-<h1>Mis trabajos</h1>
+<h1>My Jobs</h1>
+
+<a href="/create/">Create New Job</a>
+
+<br><br>
 
 {% for job in jobs %}
-    <p>{{ job.company }} - {{ job.position }}</p>
+    <p>
+        {{ job.company }} - {{ job.position }}
+        <a href="/delete/{{ job.id }}/">Delete</a>
+    </p>
 {% endfor %}
 
 </body>
