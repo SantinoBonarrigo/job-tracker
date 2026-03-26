@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+</head>
+<body>
+
+<h1>Mis trabajos</h1>
+
+{% for job in jobs %}
+    <p>{{ job.company }} - {{ job.position }}</p>
+{% endfor %}
+
+</body>
+</html>
