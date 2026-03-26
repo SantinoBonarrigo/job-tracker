@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from jobs.views import job_list
+from jobs.views import job_list, create_job
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', job_list),
+    path("create/", create_job)
 ]
+

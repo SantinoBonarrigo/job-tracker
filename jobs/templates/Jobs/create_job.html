@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Job</title>
+</head>
+<body>
+
+<h1>Crear nuevo trabajo</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Company:</label>
+    <input type="text" name="company">
+
+    <br><br>
+
+    <label>Position:</label>
+    <input type="text" name="position">
+
+    <br><br>
+
+    <button type="submit">Guardar</button>
+</form>
+
+</body>
+</html>
