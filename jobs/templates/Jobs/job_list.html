@@ -2,21 +2,35 @@
 <html>
 <head>
     <title>Jobs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'jobs/style.css' %}">
 </head>
 <body>
+    <div class="page">
+        <div class="header">
+            <h1>My Jobs</h1>
+            <a class="create-btn" href="/create/">+ Create New Job</a>
+        </div>
 
-<h1>My Jobs</h1>
+        <div class="jobs-list">
+            {% for job in jobs %}
+                <div class="job-card">
+                    <div class="job-info">
+                        <span class="company">{{ job.company }}</span>
+                        <span class="position">{{ job.position }}</span>
+                    </div>
 
-<a href="/create/">Create New Job</a>
-
-<br><br>
-
-{% for job in jobs %}
-    <p>
-        {{ job.company }} - {{ job.position }}
-        <a href="/delete/{{ job.id }}/">Delete</a>
-    </p>
-{% endfor %}
-
+                    <div class="job-actions">
+                        <a class="action-btn edit-btn" href="/edit/{{ job.id }}/">Edit</a>
+                        <a class="action-btn delete-btn" href="/delete/{{ job.id }}/">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="empty-state">
+                    No jobs added yet.
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

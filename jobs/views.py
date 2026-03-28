@@ -3,6 +3,20 @@ from .models import JobApplication
 
 # Create your views here.
 
+def edit_job(request, job_id):
+    job = JobApplication.objects.get(id=job_id)
+
+    if request.method == "POST":
+        job.company = request.POST.get("company")
+        job.position = request.POST.get("position")
+        job.save()
+        return redirect("/")
+
+    return render(request, "jobs/edit_job.html", {"job": job})
+
+       
+
+
 
 def job_list(request):
     jobs = JobApplication.objects.all()

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from jobs.views import job_list, create_job, delete_job
+from jobs.views import job_list, create_job, delete_job, edit_job
 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('', job_list),
     path('create/', create_job),
     path('delete/<int:job_id>/', delete_job),
+    path('edit/<int:job_id>/', edit_job),
 ]
 

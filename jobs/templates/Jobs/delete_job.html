@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirm Delete</title>
+    <title>Delete Job</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'jobs/style.css' %}">
 </head>
 <body>
+    <div class="page">
+        <div class="delete-card">
+            <h1>Delete Job</h1>
 
-<h1>Are you sure you want to delete this job?</h1>
+            <p>
+                Are you sure you want to delete  
+                <strong>{{ job.company }} - {{ job.position }}</strong>?
+            </p>
 
-<p>{{ job.company }} - {{ job.position }}</p>
+            <form method="POST">
+                {% csrf_token %}
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit">Yes, Delete</button>
-</form>
-
-<a href="/">Cancel</a>
-
+                <div class="form-actions">
+                    <button type="submit" class="action-btn confirm-btn">Yes, delete</button>
+                    <a href="/" class="action-btn cancel-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

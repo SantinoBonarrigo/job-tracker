@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Job</title>
+    <title>Edit Job</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'jobs/style.css' %}">
 </head>
 <body>
     <div class="page">
         <div class="form-card">
-            <h1>Create New Job</h1>
+            <h1 class="edit-title">Edit Job</h1>
 
             <form method="POST" class="job-form">
                 {% csrf_token %}
 
                 <label>Company</label>
-                <input type="text" name="company">
+                <input type="text" name="company" value="{{ job.company }}">
 
                 <label>Position</label>
-                <input type="text" name="position">
+                <input type="text" name="position" value="{{ job.position }}">
 
                 <div class="form-actions">
-                    <button type="submit" class="action-btn save-btn">Save</button>
+                    <button type="submit" class="action-btn save-btn">Save Changes</button>
                     <a href="/" class="action-btn cancel-btn">Cancel</a>
                 </div>
             </form>
